@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Users</title>
+  </head>
+  <body>
+    {% if messages %}
+    <ul class=flashes>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <form action="/users" method="get">
+        <input type="search" name="term" value="{{ search }}" />
+        <input type="submit" value="Search" />
+    </form>
+    <a href="{{ url_for('users_new') }}">Add user</a>
+    <ul>
+      {% for user in filter_users %}
+      <li><a href="{{ url_for('get_user', id=user.id) }}">{{ user.name }}</a>, {{ user.email }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

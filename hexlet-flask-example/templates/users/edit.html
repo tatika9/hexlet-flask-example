@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Update user</title>
+  </head>
+  <body>
+    <form action="{{ url_for('patch_user', id=user.id) }}" method="post">
+      <div>
+        <label>
+          id:
+          <input type="text" name="id" value="{{ user.id }}" readonly>
+        </label>
+      </div>
+      <div>
+        <label>
+            name:
+            <input type="text" name="name" value="{{ user.name }}">
+        </label>
+        {% if errors.name %}
+          <div>{{ errors.name }}</div>
+          {% endif %}
+      </div>
+      <div>
+        <label>
+            email:
+            <input type="text" name="email" value="{{ user.email }}">
+        </label>
+        {% if errors.email %}
+            <div>{{ errors['email'] }}</div>
+        {% endif %}
+      </div>
+      <input type="submit" value="Update">
+    </form>
+  </body>
+</html>
