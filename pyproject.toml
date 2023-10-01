@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Rinat Shakirov <tatika0872@gmail.com>"]
 readme = "README.md"
-packages = [{include = "hexlet_flask_example"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
